@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Prompt } from 'react-router-dom'
 
 class Home extends Component {
     render() {
@@ -14,7 +14,7 @@ class Home extends Component {
                 </ul>
                 <hr />
                 这是首页
-                </div>
+            </div>
         )
     }
 }

@@ -7,7 +7,6 @@ import orderList from 'src/pages/orders/orderList/index'
 import {
     BrowserRouter,
     Route,
-    Link,
     Redirect,
     Switch
 } from 'react-router-dom'
@@ -16,6 +15,8 @@ const routerList = (
     <BrowserRouter>
         <App>
             <Switch>
+                {/* switch 匹配第一个路由地址 */}
+                {/* 加 exact 路由完全匹配, 防止包含关系 */}
                 <Route exact path="/home" component={Home} />
                 <Route path="/productlist" component={productlist} />
                 <Route path="/orderDetails" component={orderDetails} />
