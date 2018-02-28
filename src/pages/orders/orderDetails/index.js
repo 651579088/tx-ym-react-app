@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { changeNav } from 'src/store/actions/changeNav'
-import { connect, getState } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
 class OrderDetails extends Component {
     constructor(props) {
         super(props)
@@ -14,8 +13,11 @@ class OrderDetails extends Component {
         this.props.dispatch(changeNav(this.state))
     }
     render() {
+         console.log(111, this.props)
         return (
-            <div onClick={this.dispatchEvent.bind(this)}>订单详情</div>
+            <div>
+                <div onClick={this.dispatchEvent.bind(this)}>订单详情</div>
+            </div>
         )
     }
 }

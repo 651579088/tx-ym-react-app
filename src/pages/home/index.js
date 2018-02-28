@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import { Link, Prompt } from 'react-router-dom'
 
 class Home extends Component {
+    jequ = () => {
+        this.props.history.push('/home')
+    }
     render() {
-        console.log(8888)
+        console.log(111, this.props)
         return (
             <div>
-                <ul>
-                    <li><Link to="/">首页</Link></li>
-                    <li><Link to="/orderList">订单列表</Link></li>
-                    <li><Link to="/orderDetails">订单详情</Link></li>
-                    <li><Link to="/productlist">商品列表</Link></li>
-                </ul>
-                <hr />
-                这是首页
+                <div onClick={this.jequ}>这是首页</div>
             </div>
         )
     }

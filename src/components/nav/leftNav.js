@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Menu, Icon, Button } from 'antd';
+import { Link } from 'react-router-dom'
+import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 export default class LeftNav extends Component {
@@ -8,7 +9,6 @@ export default class LeftNav extends Component {
     current: 'b-1'
   }
   handleClick = (e) => {
-    console.log('click ', e);
     this.setState({
       current: e.key,
     });
@@ -19,7 +19,7 @@ export default class LeftNav extends Component {
     });
   }
   render() {
-    console.log('{...', this.props)
+    console.log('菜单2', this.props)
     return (
       <div className="leftNavName">
         {/* <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
@@ -27,12 +27,12 @@ export default class LeftNav extends Component {
         </Button> */}
         <Menu className="leftNav" onClick={this.handleClick} defaultSelectedKeys={[this.state.current]} defaultOpenKeys={[this.state.current]} mode="inline" inlineCollapsed={this.state.collapsed} theme="dark">
           <Menu.Item key="b-1">
-            <Icon type="pie-chart" />
-            <span>车费</span>
+            <Icon type="pie-chart"/>
+            <Link className="display-init" to="/home">车费</Link>
           </Menu.Item>
           <Menu.Item key="b-2">
             <Icon type="desktop" />
-            <span>订单</span>
+            <Link className="display-init" to="/orderList">订单</Link>
           </Menu.Item>
           <SubMenu key="b-3" title={<span><Icon type="appstore" /><span>综合管理</span></span>}>
             <Menu.Item key="b-3-1">添加收费项</Menu.Item>

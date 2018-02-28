@@ -17,11 +17,11 @@ const routerList = (
             <Switch>
                 {/* switch 匹配第一个路由地址 */}
                 {/* 加 exact 路由完全匹配, 防止包含关系 */}
-                <Route exact path="/home" component={Home} />
-                <Route path="/productlist" component={productlist} />
-                <Route path="/orderDetails" component={orderDetails} />
-                <Route path="/orderList" component={orderList} />
-                <Redirect to="/home" />
+                <Route exact path="/home" key="a-1" component={Home} />
+                <Route path="/productlist" key="a-2" component={productlist} />
+                <Route path="/orderDetails" key="b-1" component={orderDetails} />
+                <Route path="/orderList"  key="b-2" component={orderList} />
+                <Redirect to="/home"  key="a-1" />
             </Switch>
         </App>
     </BrowserRouter>

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { changeNav } from 'src/store/actions/changeNav'
+import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
 import './index.less'
 const SubMenu = Menu.SubMenu
@@ -9,31 +12,28 @@ class TopNav extends Component {
     current: 'a-1',
   }
   handleClick = (e) => {
-    console.log('click ', e);
     this.setState({
       current: e.key,
     });
+    this.props.dispatch(changeNav({
+      name: 'tangxiong',
+      age: '28'
+    }))
+    this.props.changeNavEvent()
   }
   render() {
+    console.log('菜单1', this.props)
     return(
       <div className="topNavClass">
         <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal"  theme="dark">
           <Menu.Item key="a-1">旅游</Menu.Item>
-          <Menu.Item key="a-2">美食</Menu.Item>
-          <SubMenu title="景区" key="a-3">
-            <MenuItemGroup title="深圳">
-              <Menu.Item key="a-3-1-1">世界之窗</Menu.Item>
-              <Menu.Item key="a-3-1-2">锦绣中华</Menu.Item>
-            </MenuItemGroup>
-            <MenuItemGroup title="惠州">
-              <Menu.Item key="a-3-2-1">大亚湾</Menu.Item>
-              <Menu.Item key="a-3-2-2">奥地利小镇</Menu.Item>
-            </MenuItemGroup>
-          </SubMenu>
-          <Menu.Item key="a-4">帮助中心</Menu.Item>
+          <Menu.Item key="a-2">锦绣中华</Menu.Item>
+          <Menu.Item key="b-1">世界之窗</Menu.Item>
+          <Menu.Item key="b-2">美食</Menu.Item>
+          <Menu.Item key="b-3"><Link to="/home">车费</Link></Menu.Item>
         </Menu>
       </div>
     )
   }
 }
-export default TopNav;
+export default connect()(TopNav);

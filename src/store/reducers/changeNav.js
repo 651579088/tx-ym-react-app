@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-// 一级导航菜单所在的栏，用key保存这个全局状态
+// 导航菜单
 import { CHANGE_NAV } from 'src/store/actions/changeNav'
 
 function nav1(state='a', action) {

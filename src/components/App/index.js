@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TopNav from 'src/components/nav/topNav';
 import LeftNav from 'src/components/nav/leftNav';
 import './index.less'
-import { NavLink } from 'react-router-dom'
-import { Row, Col } from 'antd';
 
 class App extends Component {
    
@@ -16,39 +14,51 @@ class App extends Component {
         }
     }
     componentWillMount(){
-      console.log(1)
+      // console.log(1)
     }
     componentDidMount(){
-      console.log(2)
+      // console.log(2)
     }
     componentWillReceiveProps(){
-      console.log(3)
+      // console.log(3)
     }
     shouldComponentUpdate(){
-      console.log(4)
+      // console.log(4)
       return true
     }
     componentWillUpdate(){
-      console.log(5)
+      // console.log(5)
     }
     componentDidUpdate(){
-      console.log(6)
+      // console.log(6)
     }
     componentWillUnmount(){
-      console.log(7)
+      // console.log(7)
+    }
+
+    changeNavEvent = () => {
+      this.setState({});
     }
 
     render() {
-      console.log(22222222222,this.props)
+        const pathname = window.location.pathname
+        let key = null
+        console.log('总方法', this.props.children.props.children)
+        for (let obj of this.props.children.props.children){
+          if(obj.props.path === pathname){
+            key = obj.key
+            break
+          }
+        }
         return (
         	<div className="appName">
-            <TopNav />
+            <TopNav {...this.props} pathname={pathname} keyval={key} changeNavEvent={this.changeNavEvent}/>
             <div className="contentClass">
               <div className="contentName">
-                <div className="leftNavName"><LeftNav {...this.props}/></div>
+                <div className="leftNavName"><LeftNav {...this.props} pathname={pathname} keyval={key}/></div>
                 <div className="content">{this.props.children}</div>
               </div>
-            </div>     
+            </div>
         	</div>
         );
     }
